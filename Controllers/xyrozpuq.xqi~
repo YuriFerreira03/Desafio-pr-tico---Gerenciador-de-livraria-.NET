@@ -1,0 +1,57 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using MyFirstApi.Models;
+
+namespace MyFirstApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserControllerlivro : ControllerBase
+    {
+        [HttpPost]
+        [ProducesResponseType(typeof(Livro), StatusCodes.Status201Created)]
+        public IActionResult Create([FromBody] Livro request)
+        {
+            return Created(stri);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(Livro), StatusCodes.Status200OK)]
+        public IActionResult Get()
+        {
+            var livro = new Livro
+            {
+                Id = 1,
+                Titulo = "O Senhor dos Anéis",
+                Autor = "J.R.R. Tolkien",
+                Genero = "Fantasia",
+                Preco = "R$ 54,90",
+                QtnEstoque = "10",
+            };
+            return Ok(livro);
+        }
+
+        [HttpPut]
+        [ProducesResponseType(typeof(Livro), StatusCodes.Status200OK)]
+        public IActionResult Put()
+        {
+            var livro = new Livro
+            {
+                Id = 1,
+                Titulo = "O Senhor dos Anéis",
+                Autor = "J.R.R. Tolkien",
+                Genero = "Fantasia",
+                Preco = "R$ 54,90",
+                QtnEstoque = "10",
+            };
+            return Ok(livro);
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Delete()
+        {
+            // Lógica para deletar o livro
+            return NoContent();
+        }
+    }
+}
